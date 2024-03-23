@@ -84,6 +84,8 @@ a {
     height: 100vh;
     width: 300px;
     padding: 40px 43px;
+    background: #fff;
+    z-index: 1000;
 
     .header-logo {
         margin-bottom: 38px;
@@ -208,9 +210,10 @@ a {
                 left: 50%;          /* 左端を中央に */
                 transform: translate(-50%, -50%); /* 中央揃え */
                 }
-                h3 {
-                    margin: 15px 0 5px;
-                }
+            }
+
+            h3 {
+                margin: 15px 0 5px;
             }
         }
     }
@@ -241,7 +244,9 @@ a {
                 text-align: center;
 
                 li {
-                    padding: 29px 0;
+                    width: 200px;
+                    height: 80px;
+                    line-height: 80px;
                     background: #414141;
                     display: block;
                     color: #fff;
@@ -252,13 +257,12 @@ a {
                     &::before {
                         position: absolute;
                         content: "";
-                        bottom: -31px;
-                        left: 0; /* 疑似要素の左端を親要素の左端に配置 */
-                        width: 100%; /* 疑似要素の幅を親要素の幅と同じにする */
-                        height: 31px; /* 三角形の高さを設定 */
-                        background-color: #414141; /* 三角形の色を設定 */
-                        clip-path: polygon(0% 0%, 50% 100%, 100% 0%); /* 三角形の形を設定 */
-                        z-index: 100;
+                        top: 80px;
+                        right: 0;
+                        left: 0;
+                        border-top: 30px solid #414141;
+                        border-left: 100px solid transparent;
+                        border-right: 100px solid transparent;
                     }
                     &:after {
                         position: absolute;
@@ -278,7 +282,6 @@ a {
             }
 
             .items {
-                width: 67%;
                 margin-left: 10%;
 
                 .item {
@@ -441,9 +444,17 @@ a {
     body {
         margin: 0;
     }
-    .container {
-        display: flex;
+    .section-title {
+        font-size: 1.25rem;
+        margin-bottom: 30px;
+
+        /* 左右の横ライン */
+        &::before,
+        &::after {
+        width: 18%;
     }
+    }
+
     /*-------------------------------------------
     #side-header
     -------------------------------------------*/
@@ -452,14 +463,56 @@ a {
         height: 70px;
         width: 100%;
         padding: 10px;
-        flex-direction: row;
 
         img {
             width: 185px;
+            height: 50px;
         }
 
         ul {
             display: none;
+        }
+    }
+
+    /*-------------------------------------------
+    ハンバーガーメニュー
+    -------------------------------------------*/
+    .hamburger {
+        position: fixed;
+        top: 26px;
+        right: 20px;
+        width: 30px;
+        height: 30px;
+        z-index: 1000;
+        cursor: pointer;
+
+        span {
+            position: absolute;
+            background: $mainColor;
+            width: 100%;
+            height: 2px;
+            border-radius: 2px;
+            transition: all .4s;
+            &:nth-of-type(1) {
+                top: 0;
+            }
+            &:nth-of-type(2) {
+                top: 10px;
+            }
+            &:nth-of-type(3) {
+                top: 20px;
+            }
+        }
+        &:active span:nth-of-type(1) {
+            top: 10px;
+            transform: rotate(-315deg);  /* 1本目を反時計回りに45度回転 */
+        }
+        &:active span:nth-of-type(2) {
+            opacity: 0;
+        }
+        &:active span:nth-of-type(3) {
+            top: 10px;
+            transform: rotate(315deg);  /* 1本目を反時計回りに45度回転 */
         }
     }
 
@@ -476,12 +529,88 @@ a {
             height: 100%; /* ビデオを #video-area の幅と高さに合わせる */
             overflow: hidden; /* 画面外の部分を隠す */
             text-align: center;
+
+            video {
+                width: auto;
+                height: 520px;
+                object-fit: cover; /* アスペクト比を維持しつつ親要素にフィット */
+            }
         }
     }
 
-    #video video {
-        width: auto;
-        height: 520px;
-        object-fit: cover; /* アスペクト比を維持しつつ親要素にフィット */
+    /*-------------------------------------------
+    #introduction
+    -------------------------------------------*/
+    #introduction {
+        padding-bottom: 40px;
+
+        .house-projects {
+            flex-direction: column;
+
+            .house-project {
+                width: 100%;
+                margin-bottom: 33px;
+                &:nth-of-type(3) {
+                    margin-bottom: 33px;
+                }
+            }
+        }
+    }
+
+    /*-------------------------------------------
+    #feature
+    -------------------------------------------*/
+    #feature {
+        padding-bottom: 120px;
+    }
+
+    /*-------------------------------------------
+    #flow
+    -------------------------------------------*/
+    #flow {
+        padding: 60px 0;
+
+        .inner {
+            .flow-chart {
+                flex-direction: column;
+                margin-top: 30px;
+
+                .chart-nav {
+                    width: 100%;
+                    padding: 0 20px;
+                    align-items: center;
+
+                    li {
+                        width: 100%;
+                        &::before {
+                            border-left: calc(50vw - 40px) solid transparent;
+                            border-right: calc(50vw - 40px) solid transparent;
+                        }
+                    }
+                }
+
+                .items {
+                    margin-left: 50px;
+                }
+            }
+        }
+    }
+
+    /*-------------------------------------------
+    #contact
+    -------------------------------------------*/
+    #contact {
+        padding-bottom: 100px;
+
+        .inner {
+            .contact-contents {
+                flex-direction: column;
+                margin-top: 30px;
+                .content {
+                    width: 60%;
+                    margin-bottom: 20px;
+                }
+            }
+        }
     }
 }
