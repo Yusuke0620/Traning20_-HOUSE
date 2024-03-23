@@ -334,7 +334,7 @@ a {
   background-color: rgb(18, 18, 18);
   color: #fff;
   text-align: center;
-  padding: 50px 0 20px;
+  padding: 40px 0 20px;
 }
 #footer a {
   color: #fff;
@@ -357,14 +357,16 @@ a {
 }
 #footer .copyright {
   font-size: 0.75rem;
-  margin-top: 70px;
+  margin-top: 60px;
 }
 
 /*-------------------------------------------
 #return-btn
 -------------------------------------------*/
 #return-btn {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s, visibility 0.5s;
   position: fixed;
   content: "";
   bottom: 25px;
@@ -375,10 +377,11 @@ a {
   display: block;
   height: 50px;
   width: 50px;
-  background: rgba(18, 18, 18, 0.2823529412);
-  border: 1px solid rgba(255, 255, 255, 0.3254901961);
+  background: #121212;
+  border: 1px solid #fff;
   border-radius: 50%;
   z-index: 10;
+  opacity: 0.2;
 }
 #return-btn ::before {
   position: absolute;
@@ -387,8 +390,8 @@ a {
   transform: translateX(-50%);
   height: 6px;
   width: 14px;
-  background: #fff;
-  opacity: 0.3;
+  background: #ffffff;
+  opacity: 1;
   clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
 }
 
