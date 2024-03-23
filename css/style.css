@@ -360,6 +360,38 @@ a {
   margin-top: 70px;
 }
 
+/*-------------------------------------------
+#return-btn
+-------------------------------------------*/
+#return-btn {
+  display: none;
+  position: fixed;
+  content: "";
+  bottom: 25px;
+  right: 25px;
+  text-align: center;
+}
+#return-btn a {
+  display: block;
+  height: 50px;
+  width: 50px;
+  background: rgba(18, 18, 18, 0.2823529412);
+  border: 1px solid rgba(255, 255, 255, 0.3254901961);
+  border-radius: 50%;
+  z-index: 10;
+}
+#return-btn ::before {
+  position: absolute;
+  content: "";
+  bottom: 21px;
+  transform: translateX(-50%);
+  height: 6px;
+  width: 14px;
+  background: #fff;
+  opacity: 0.3;
+  clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+}
+
 /* レスポンシブ・ブレークポイントpx
 ------------------------------- */
 @media screen and (max-width: 960px) {

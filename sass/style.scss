@@ -400,7 +400,37 @@ a {
     }
 }
 
-
+/*-------------------------------------------
+#return-btn
+-------------------------------------------*/
+#return-btn {
+    display: none;
+    position: fixed;
+    content: "";
+    bottom: 25px;
+    right: 25px;
+    text-align: center;
+    a {
+        display: block;
+        height: 50px;
+        width: 50px;
+        background: #12121248;
+        border: 1px solid #ffffff53;
+        border-radius: 50%;
+        z-index: 10;
+    }
+    ::before {
+        position: absolute;
+        content: "";
+        bottom: 21px;
+        transform: translateX(-50%);
+        height: 6px;
+        width: 14px;
+        background: #fff;
+        opacity: 0.3;
+        clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+    }
+}
 
 /* レスポンシブ・ブレークポイントpx
 ------------------------------- */
