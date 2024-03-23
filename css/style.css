@@ -1,0 +1,407 @@
+@charset "UTF-8";
+/*
+Common class for setting width
+================================================ */
+.inner {
+  max-width: 900px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+/*
+COMMON
+================================================ */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  color: rgb(18, 18, 18);
+  margin-left: 300px;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+  /* 左右の横ライン */
+}
+.section-title::before, .section-title::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  width: 28%;
+  height: 1px;
+  background-color: #fff;
+}
+.section-title::after {
+  right: 0;
+}
+.section-title::before {
+  left: 0;
+}
+
+/*-------------------------------------------
+#side-header
+-------------------------------------------*/
+#side-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 300px;
+  padding: 40px 43px;
+}
+#side-header .header-logo {
+  margin-bottom: 38px;
+  width: 200px;
+}
+#side-header ul {
+  margin-bottom: 70px;
+}
+#side-header ul li {
+  font-size: 0.875rem;
+  margin-bottom: 17px;
+}
+#side-header ul li a {
+  color: rgb(18, 18, 18);
+}
+
+/*-------------------------------------------
+#video-area
+-------------------------------------------*/
+#video-area {
+  height: 100vh; /*高さを全画面にあわせる*/
+}
+#video-area #video {
+  position: fixed;
+  z-index: -1; /*最背面に設定*/
+  top: -220px;
+  left: 300px;
+  bottom: 0;
+  overflow: hidden;
+}
+
+/*-------------------------------------------
+#introduction
+-------------------------------------------*/
+#introduction {
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+  opacity: 1;
+  padding-bottom: 80px;
+}
+#introduction .house-projects {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 0;
+}
+#introduction .house-projects .house-project {
+  border: 1px solid #fff;
+  width: 47%;
+  margin-bottom: 50px;
+  box-shadow: inset 0 -30px 15px 1px #2E2E2E;
+  position: relative;
+}
+#introduction .house-projects .house-project:nth-of-type(3), #introduction .house-projects .house-project:nth-of-type(4) {
+  margin-bottom: 0;
+}
+#introduction .house-projects .house-project a {
+  display: inline-block;
+}
+#introduction .house-projects .house-project p {
+  position: absolute;
+  bottom: 0;
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 0 0 4px 7px;
+}
+#introduction .house-projects .house-project img {
+  position: relative;
+  z-index: -1;
+}
+
+/*-------------------------------------------
+#feature
+-------------------------------------------*/
+#feature {
+  font-size: 0.875rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 80px 0 160px;
+}
+#feature .feature-blocks {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  color: #fff;
+}
+#feature .feature-blocks .feature-block {
+  width: 30%;
+  position: relative; /* 相対指定※疑似要素 */
+}
+#feature .feature-blocks .feature-block .circle {
+  height: 0;
+  padding-bottom: 100%; /* サイズの比率を維持するために高さをパーセンテージで指定 */
+  overflow: hidden; /* hoverが円からはみ出さない */
+  display: flex; /* 縦中央揃えのため */
+  border: 1px solid #fff;
+  border-radius: 50%;
+  position: relative; /* 相対指定※疑似要素 */
+  /* 疑似要素 */
+}
+#feature .feature-blocks .feature-block .circle::before {
+  position: absolute; /* アニメーション絶対指定 */
+  content: "";
+  width: 0; /* 横幅0スタート */
+  height: 100%; /* 高さは100％で設定 */
+  top: 0; /* top0で固定 */
+  left: 0; /* left0で固定 */
+  transition: all 0.5s;
+  background: rgba(222, 222, 222, 0.3333333333); /* アニメーション背景色 */
+}
+#feature .feature-blocks .feature-block .circle:hover::before {
+  width: 100%; /* 疑似要素hoverで横幅100% */
+}
+#feature .feature-blocks .feature-block .circle span {
+  color: #fff;
+  z-index: 1; /* hoverで文字が隠れないようにする */
+  position: absolute; /* 絶対位置指定 */
+  top: 50%; /* 上端を中央に */
+  left: 50%; /* 左端を中央に */
+  transform: translate(-50%, -50%); /* 中央揃え */
+}
+#feature .feature-blocks .feature-block .circle h3 {
+  margin: 15px 0 5px;
+}
+
+/*-------------------------------------------
+#flow
+-------------------------------------------*/
+#flow {
+  background-color: #ffffff;
+  padding: 120px 0;
+}
+#flow .inner .section-title {
+  color: rgb(18, 18, 18);
+}
+#flow .inner .section-title::before, #flow .inner .section-title::after {
+  background-color: rgb(18, 18, 18);
+}
+#flow .inner .flow-chart {
+  display: flex;
+  margin-top: 60px;
+}
+#flow .inner .flow-chart .chart-nav {
+  width: 200px;
+  text-align: center;
+}
+#flow .inner .flow-chart .chart-nav li {
+  padding: 29px 0;
+  background: #414141;
+  display: block;
+  color: #fff;
+  margin-bottom: 62px;
+  position: relative;
+  z-index: 100;
+}
+#flow .inner .flow-chart .chart-nav li::before {
+  position: absolute;
+  content: "";
+  bottom: -31px;
+  left: 0; /* 疑似要素の左端を親要素の左端に配置 */
+  width: 100%; /* 疑似要素の幅を親要素の幅と同じにする */
+  height: 31px; /* 三角形の高さを設定 */
+  background-color: #414141; /* 三角形の色を設定 */
+  clip-path: polygon(0% 0%, 50% 100%, 100% 0%); /* 三角形の形を設定 */
+  z-index: 100;
+}
+#flow .inner .flow-chart .chart-nav li:after {
+  position: absolute;
+  content: "";
+  bottom: -65px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 60px;
+  width: 50px;
+  background: #FFDD00;
+  z-index: -1;
+}
+#flow .inner .flow-chart .chart-nav li:last-of-type:after {
+  display: none; /* 最後のli要素を非表示 */
+}
+#flow .inner .flow-chart .items {
+  width: 67%;
+  margin-left: 10%;
+}
+#flow .inner .flow-chart .items .item {
+  position: relative;
+  margin-bottom: 45px;
+}
+#flow .inner .flow-chart .items .item .number {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: -45px;
+  color: #fff;
+  background-color: #414141;
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+  text-align: center;
+  padding-top: 3px;
+}
+#flow .inner .flow-chart .items .item dl dt {
+  font-size: 1.25rem;
+  border-bottom: 1px solid rgb(18, 18, 18);
+  padding-bottom: 10px;
+}
+#flow .inner .flow-chart .items .item dl dd {
+  padding: 10px 10px 0 0;
+}
+
+/*-------------------------------------------
+#contact
+-------------------------------------------*/
+#contact {
+  background-color: #fff;
+  padding-bottom: 160px;
+}
+#contact .inner .section-title {
+  color: rgb(18, 18, 18);
+}
+#contact .inner .section-title::before, #contact .inner .section-title::after {
+  background-color: rgb(18, 18, 18);
+}
+#contact .inner .contact-contents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  margin-top: 60px;
+}
+#contact .inner .contact-contents .content {
+  width: 30%;
+  border: 1px solid rgb(18, 18, 18);
+}
+#contact .inner .contact-contents .content a {
+  display: block;
+  font-size: 0.875rem;
+  color: rgb(18, 18, 18);
+  padding: 53px 0;
+  transition: all 0.1s;
+  position: relative;
+}
+#contact .inner .contact-contents .content a:hover {
+  outline: 4px solid rgb(18, 18, 18);
+}
+#contact .inner .contact-contents .content a::before {
+  position: absolute;
+  content: "";
+  bottom: 4px;
+  right: 4px;
+  height: 20px;
+  width: 20px;
+  background: rgb(18, 18, 18);
+  clip-path: polygon(0% 100%, 100% 100%, 100% 0%);
+}
+
+/*-------------------------------------------
+#footer
+-------------------------------------------*/
+#footer {
+  background-color: rgb(18, 18, 18);
+  color: #fff;
+  text-align: center;
+  padding: 50px 0 20px;
+}
+#footer a {
+  color: #fff;
+}
+#footer .footer-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#footer .footer-nav li {
+  font-size: 0.875rem;
+  width: auto;
+  border-right: 1px solid #fff;
+  padding: 0 20px;
+  margin-top: 10px;
+}
+#footer .footer-nav li:last-child {
+  border-right: none;
+}
+#footer .copyright {
+  font-size: 0.75rem;
+  margin-top: 70px;
+}
+
+/* レスポンシブ・ブレークポイントpx
+------------------------------- */
+@media screen and (max-width: 960px) {
+  body {
+    margin: 0;
+  }
+  .container {
+    display: flex;
+  }
+  /*-------------------------------------------
+  #side-header
+  -------------------------------------------*/
+  #side-header {
+    right: 0;
+    height: 70px;
+    width: 100%;
+    padding: 10px;
+    flex-direction: row;
+  }
+  #side-header img {
+    width: 185px;
+  }
+  #side-header ul {
+    display: none;
+  }
+  /*-------------------------------------------
+  #video-area
+  -------------------------------------------*/
+  #video-area {
+    height: 90vh;
+  }
+  #video-area #video {
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: 100%; /* ビデオを #video-area の幅と高さに合わせる */
+    overflow: hidden; /* 画面外の部分を隠す */
+    text-align: center;
+  }
+  #video video {
+    width: auto;
+    height: 520px;
+    object-fit: cover; /* アスペクト比を維持しつつ親要素にフィット */
+  }
+}
