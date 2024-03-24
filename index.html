@@ -16,10 +16,23 @@
         <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css"/>
     <!-- CSS -->
         <link rel="stylesheet" href="./css/style.css">
-        <script src="./js/script.js" defer></script>
+        <script src="js/script.js" defer></script>
     </head>
 
     <body>
+        <!-- レスポンシブ後のヘッダー -->
+        <header id="responsive-top-header">
+            <h1 class="header-logo"><a href="#"><img src="images/logo.svg" alt=""></a></h1>
+        </header>
+
+
+        <!-- ハンバーガーメニュー -->
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
         <header id="side-header">
             <h1 class="header-logo"><a href="#"><img src="images/logo.svg" alt=""></a></h1>
             <ul>
@@ -37,12 +50,11 @@
             </ul>
         </header><!-- /side-header -->
 
-        <!-- ハンバーガーメニュー -->
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+
+        <!-- 黒色背景※通常は非表示 -->
+        <div class="black-mask"></div>
+
+
 
         <div id="video-area">
             <div id="video">
